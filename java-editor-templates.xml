@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java-statements" deleted="false" description="JMock Checking Expectations" enabled="true" name="checking">context.checking(new ${expectations:newType(org.jmock.Expectations)}() { {
+  ${cursor}
+} });</template><template autoinsert="true" context="java-members" deleted="false" description="JMock Expectations Method" enabled="true" name="expectations">private Expectations ${name}Expectations() throws Exception {
+	return new ${expectations:newType(org.jmock.Expectations)}() { { 
+    ${cursor}
+	} };
+}</template><template autoinsert="true" context="java-members" deleted="false" description="JMock Rule Mockery" enabled="true" name="jmock">@${ruleType:newType(org.junit.Rule)}
+public final ${mockeryType:newType(org.jmock.integration.junit4.JUnitRuleMockery)} context = new ${mockeryType}();
+</template><template autoinsert="true" context="java-members" deleted="false" description="JUnit Setup Method" enabled="true" name="setup">@${beforeType:newType(org.junit.Before)}
+public void setUp() throws Exception {
+	${cursor}
+}
+
+</template><template autoinsert="true" context="java-members" deleted="false" description="JUnit TearDown Method" enabled="true" name="teardown">@${afterType:newType(org.junit.After)}
+public void tearDown() throws Exception {
+  ${cursor}
+}
+</template><template autoinsert="false" context="java-members" deleted="false" description="test method (JUnit 4)" enabled="true" id="org.eclipse.jdt.ui.templates.test_junit4" name="test">@${testType:newType(org.junit.Test)}
+public void ${testName}() throws Exception {
+  ${assertThatImport:importStatic('org.hamcrest.MatcherAssert.assertThat')}${matchersImport:importStatic('org.hamcrest.Matchers.*')}${jmockImport:importStatic('org.jmock.Expectations.*')}${junitImport:importStatic('org.junit.Assert.*')}${cursor}fail("not implemented");
+}</template></templates>
