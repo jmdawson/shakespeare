@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    This datasource connects to MySQL with a database named shakespeare.
+    You will (hopefully) have to update the user-name and/or password below.
+    Simply drop this file into your wildfly server's standalone/deployments
+    folder.  The datasource should then deploy and be available to your app.
+
+    NOTE: The mysql-connector MUST already be deployed in the server.
+-->
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+  <datasource jndi-name="java:jboss/datasources/shakespeareDS" pool-name="shakespeareDS" enabled="true">
+      <connection-url>jdbc:mysql://localhost:3306/shakespeare</connection-url>
+      <driver>mysql-connector-java-5.1.31-bin.jar_com.mysql.jdbc.Driver_5_1</driver>
+      <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+      <pool>
+          <min-pool-size>10</min-pool-size>
+          <max-pool-size>100</max-pool-size>
+          <prefill>true</prefill>
+      </pool>
+      <security>
+          <user-name>root</user-name>
+          <password>developer</password>
+      </security>
+      <statement>
+          <prepared-statement-cache-size>32</prepared-statement-cache-size>
+          <share-prepared-statements>true</share-prepared-statements>
+      </statement>
+  </datasource>
+</datasources>
+ 
