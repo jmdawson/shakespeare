@@ -1,0 +1,91 @@
+body {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+.container .panel {
+	margin-top: 15px;
+}
+
+.container .panel form {
+	margin-top: 20px;
+}
+
+.app-callout {
+	margin: 20px 0;
+	padding: 10px;
+	border-left: 3px solid #eee;
+}
+
+.app-callout-danger {
+	background-color: #fdf7f7;
+	border-color: #d9534f;
+}
+
+.app-callout-danger h4 {
+	color: #d9534f;
+	margin-top: 0;
+}
+
+.app-callout-warning {
+	background-color: #fcf8f2;
+	border-color: #f0ad4e;
+}
+
+.app-callout-warning h4 {
+	color: #f0ad4e;
+	margin-top: 0;
+}
+
+.table th {
+	background-color: rgb(255, 252, 247);
+}
+
+.table-services {
+	margin-top: 40px;
+} 
+
+.client-history {
+	 
+	 border-bottom:  1px solid #eee;
+}
+.client-detail {
+	padding-bottom: 15px;
+}
+
+.row-heading {
+	background-color: rgb(255, 252, 247);
+	border-bottom:  1px solid #eee;
+	border-top:  1px solid #eee;
+}
+
+.top-border{
+	border-top:  1px solid #eee;
+}
+
+.button-bar {
+	text-align: right;
+	margin-top:15px;
+}
+
+.spacer {
+	height: 30px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    text-align: right
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    margin-top: 1em
+}
+
+.form-spacer {
+  padding-top: 7px;
+}
+
+.nav-bar-inverse{
+	background-image: linear-gradient(to bottom,#3c3c3c 0,#0404ba 100%);
+	color: #c0c0c0;
+}
