@@ -1,0 +1,1 @@
+Shakespeare is a collection of tools for managing Search and Rescue operations in the style of the Virginia Department of Emergency Management.  As it stands, it is based on Java EE 7, because that is the toolset for this problem with which I am most familiar.
