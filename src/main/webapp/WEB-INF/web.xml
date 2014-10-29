@@ -21,11 +21,11 @@
   </servlet-mapping>
 
   <security-role>
-    <role-name>cns.nemo.user</role-name>
+    <role-name>jmdawson.shakespeare.user</role-name>
   </security-role>
 
   <security-role>
-    <role-name>cns.nemo.administrator</role-name>
+    <role-name>jmdawson.shakespeare.administrator</role-name>
   </security-role>
 
 
