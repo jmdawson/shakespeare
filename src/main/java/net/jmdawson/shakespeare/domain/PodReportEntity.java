@@ -30,11 +30,11 @@ public class PodReportEntity extends AbstractEntity
 
   @JoinColumn(name = "segment_id")
   @ManyToOne
-  private Segment segment;
+  private SegmentEntity segment;
 
   @JoinColumn(name = "search_id")
   @ManyToOne
-  private Search search;
+  private SearchEntity search;
 
   @JoinColumn(name = "added_by")
   @ManyToOne
@@ -60,7 +60,7 @@ public class PodReportEntity extends AbstractEntity
     return segment;
   }
 
-  public void setSegment(Segment segment) {
+  public void setSegment(SegmentEntity segment) {
     this.segment = segment;
   }
 
@@ -69,7 +69,7 @@ public class PodReportEntity extends AbstractEntity
     return search;
   }
 
-  public void setSearch(Search search) {
+  public void setSearch(SearchEntity search) {
     this.search = search;
   }
 
