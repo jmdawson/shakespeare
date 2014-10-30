@@ -58,7 +58,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    * Set the last-known PoD for this segment
    * @param lastPod
    */
-  public void setLastPoD(int lastPod) {
+  public void setLastPod(int lastPod) {
     this.lastPod = lastPod;
   }
 
