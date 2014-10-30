@@ -32,17 +32,17 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   
   @Id
   @Column(nullable=false)
-  protected int id;
+  private int id;
   
   @Column
   @OneToMany(mappedBy="segmentNumber")
-  protected Set<PodReport> pods;
+  private Set<PodReport> pods;
   
   @Column(name="last_poa")
-  protected int lastPoa;
+  private int lastPoa;
 
   @Column(name = "search_id")
-  protected Search search;
+  private Search search;
   @Override
   public int getId() {
     return id;

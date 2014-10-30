@@ -27,21 +27,21 @@ public class PodReportEntity implements PodReport {
   
   @JoinColumn(name = "segment_id")
   @ManyToOne
-  protected Segment segment;
+  private Segment segment;
   
   @JoinColumn(name = "search_id")
   @ManyToOne
-  protected Search search;
+  private Search search;
   
   @JoinColumn(name = "added_by")
   @ManyToOne
-  protected ShakespeareUser addedBy;
+  private ShakespeareUser addedBy;
   
   @Column(name = "added_date")
-  protected Date reportedDate;
+  private Date reportedDate;
   
   @Column(name = "pod")
-  protected int value;
+  private int value;
 
   @Override
   public int getId() {
