@@ -5,14 +5,14 @@ import java.util.Date;
 public interface PodReport {
   int getId();
 
-  int getValue();
+  Segment getSegment();
+
+  Search getSearch();
 
   Date getReportedDate();
 
   ShakespeareUser getAddedBy();
 
-  Search getSearch();
-
-  Segment getSegment();
+  int getValue();
 
 }
