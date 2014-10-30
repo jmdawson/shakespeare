@@ -6,10 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import net.jmdawson.shakespeare.Search;
@@ -24,7 +21,7 @@ import net.jmdawson.shakespeare.ShakespeareUser;
 @Entity
 @Table(name = "search")
 @Access(AccessType.FIELD)
-public class Searchentity extends AbstractEntity implements Search {
+public class SearchEntity extends AbstractEntity implements Search {
 
   private static final long serialVersionUID = -1279612529231319968L;
 
