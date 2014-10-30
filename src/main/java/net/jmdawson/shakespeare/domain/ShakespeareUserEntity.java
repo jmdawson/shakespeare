@@ -14,7 +14,10 @@ import net.jmdawson.shakespeare.ShakespeareUser;
 @Entity
 @Table(name = "user")
 @Access(AccessType.FIELD)
-public class ShakespeareUserEntity implements ShakespeareUser {
+public class ShakespeareUserEntity extends AbstractEntity
+    implements ShakespeareUser {
+
+  private static final long serialVersionUID = 9138075633233582114L;
 
   @Id
   @Column
