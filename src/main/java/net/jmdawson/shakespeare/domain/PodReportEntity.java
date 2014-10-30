@@ -19,8 +19,10 @@ import net.jmdawson.shakespeare.ShakespeareUser;
 @Entity
 @Table(name="pod_report")
 @Access(AccessType.FIELD)
-public class PodReportEntity implements PodReport {
+public class PodReportEntity extends AbstractEntity implements PodReport {
   
+  private static final long serialVersionUID = 7822337088544034795L;
+
   @Id
   @Column
   protected int id;
