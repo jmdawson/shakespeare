@@ -11,7 +11,7 @@
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema">
   <datasource jndi-name="java:jboss/datasources/shakespeareDS" pool-name="shakespeareDS" enabled="true">
       <connection-url>jdbc:mysql://localhost:3306/shakespeare</connection-url>
-      <driver>mysql-connector-java-5.1.31-bin.jar_com.mysql.jdbc.Driver_5_1</driver>
+      <driver>mysql-connector-java-5.1.33-bin.jar_com.mysql.jdbc.Driver_5_1</driver>
       <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
       <pool>
           <min-pool-size>10</min-pool-size>
