@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,9 +19,14 @@ import net.jmdawson.shakespeare.ShakespeareUser;
 @Entity
 @Table(name = "pod_report")
 @Access(AccessType.FIELD)
-public class PodReportEntity extends AbstractEntity implements PodReport {
+public class PodReportEntity extends AbstractEntity
+    implements PodReport {
 
   private static final long serialVersionUID = 7822337088544034795L;
+
+  @Id
+  @Column
+  private int id;
 
   @JoinColumn(name = "segment_id")
   @ManyToOne
@@ -32,13 +38,22 @@ public class PodReportEntity extends AbstractEntity implements PodReport {
 
   @JoinColumn(name = "added_by")
   @ManyToOne
-  private ShakespeareUser addedBy;
+  private ShakespeareUserEntity addedBy;
 
   @Column(name = "added_date")
   private Date reportedDate;
 
   @Column(name = "pod")
   private int value;
+
+  @Override
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 
   @Override
   public Segment getSegment() {
@@ -58,13 +73,12 @@ public class PodReportEntity extends AbstractEntity implements PodReport {
     this.search = search;
   }
 
-  public void setAddedBy(ShakespeareUser addedBy) {
-    this.addedBy = addedBy;
-  }
-
   @Override
   public ShakespeareUser getAddedBy() {
     return addedBy;
+  }
+  public void setAddedBy(ShakespeareUserEntity addedBy) {
+    this.addedBy = addedBy;
   }
 
   @Override
@@ -84,4 +98,5 @@ public class PodReportEntity extends AbstractEntity implements PodReport {
   public void setValue(int value) {
     this.value = value;
   }
+
 }

@@ -20,9 +20,6 @@ package net.jmdawson.shakespeare.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 /**
  * Abstract Entity type.
  *
@@ -33,10 +30,6 @@ import javax.persistence.Id;
 public abstract class AbstractEntity implements Serializable {
 
   private static final long serialVersionUID = 7680266662552690977L;
-  
-  @Id
-  @Column
-  protected int id;
   
   /**
    * Constructs a new instance.
@@ -52,14 +45,6 @@ public abstract class AbstractEntity implements Serializable {
   }
 
   // TODO: soon we will have version property here
-  public int getId() {
-    return id;
-  }
-  
-  public void setId(int id) {
-    this.id = id;
-  }
-  
   
 
 }
