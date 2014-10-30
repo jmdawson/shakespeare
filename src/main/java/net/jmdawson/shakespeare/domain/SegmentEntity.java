@@ -1,15 +1,21 @@
 package net.jmdawson.shakespeare.domain;
 
+import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.jmdawson.shakespeare.PodReport;
+import net.jmdawson.shakespeare.Search;
 import net.jmdawson.shakespeare.Segment;
+import net.jmdawson.shakespeare.ShakespeareUser;
 
 /**
  * An implementation of the Segment domain object
@@ -29,11 +35,14 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   protected int id;
   
   @Column
-  protected int lastPod;
+  @OneToMany(mappedBy="segmentNumber")
+  protected Set<PodReport> pods;
   
-  @Column
+  @Column(name="last_poa")
   protected int lastPoa;
 
+  @Column(name = "search_id")
+  protected Search search;
   @Override
   public int getId() {
     return id;
@@ -41,15 +50,6 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   
   public void setId(int id){
     this.id = id;
-  }
-
-  @Override
-  public int getLastPod() {
-    return lastPod;
-  }
-  
-  public void setLastPod(int pod){
-    this.lastPod = pod;
   }
 
   @Override
@@ -72,6 +72,42 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     if(!(obj instanceof SegmentEntity)) return false;
     SegmentEntity that = (SegmentEntity) obj;
     return Objects.equals(this.id, that.id);
+  }
+
+  @Override
+  public PodReport getLastPod() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Search getSearch() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public ShakespeareUser getCreatedBy() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Date getCreatedDate() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public ShakespeareUser getLastUpdatedBy() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Date getLastUpdatedDate() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }
