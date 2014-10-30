@@ -48,7 +48,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
 
   @ManyToOne 
   @JoinColumn(name = "search_id")
-  private Search search;
+  private SearchEntity search;
 
   private ShakespeareUserEntity createdBy;
 
@@ -93,6 +93,10 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   @Override
   public Search getSearch() {
     return search;
+  }
+  
+  public void setSearch(SearchEntity search){
+    this.search = search;
   }
 
   @Override
