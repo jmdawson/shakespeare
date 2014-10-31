@@ -38,7 +38,8 @@ public class ViewSegmentsServiceBean implements ViewSegmentsService {
     List<ViewSegmentModel> models = new ArrayList<>();
 
     for (Segment segment : segments) {
-      models.add(factory.createModel(segment));
+      ViewSegmentModel model = factory.createModel(segment);
+      models.add(model);
     }
     return models;
   }
