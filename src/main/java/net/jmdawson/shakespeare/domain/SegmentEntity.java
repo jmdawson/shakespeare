@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -46,10 +47,10 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   @Column(name = "current_poa")
   private Integer currentPoa;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment", cascade=CascadeType.ALL)
   private Set<PodReportEntity> pods = new LinkedHashSet<>();
 
-  @ManyToOne 
+  @ManyToOne
   @JoinColumn(name = "search_id")
   private SearchEntity search;
 
