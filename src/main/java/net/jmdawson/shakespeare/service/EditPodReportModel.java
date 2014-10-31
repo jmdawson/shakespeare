@@ -8,7 +8,8 @@ public interface EditPodReportModel extends Comparable<EditPodReportModel>{
   
   Date getLastUpdated();
   
-  ViewShakespeareUserModel getLastUpdatedBy();
+//  ViewShakespeareUserModel getLastUpdatedBy();
+  String getLastUpdatedBy();
   
 
 }

@@ -20,11 +20,12 @@ public class DummySegmentRepository implements SegmentRepository {
   public List<Segment> getSegments() {
  List<Segment> fakeResults =  new ArrayList<Segment>();
     
-    SearchEntity search = new SearchEntity();
-    search.setCreatedDate(new Date());
-    search.setSearchNumber("VA-000-14");
-    search.setInitiationDate(new Date());
-    search.setId(1);
+//    SearchEntity search = new SearchEntity();
+//    search.setCreatedDate(new Date());
+//    search.setSearchNumber("VA-000-14");
+//    search.setInitiationDate(new Date());
+//    search.setId(1);
+ String search = ("VA-000-14");
     
     SegmentEntity segment1 = new SegmentEntity();
     segment1.setCurrentPoa(50);
@@ -33,11 +34,12 @@ public class DummySegmentRepository implements SegmentRepository {
     segment1.setSearch(search);
     
     
-    PodReportEntity pod1 = new PodReportEntity();
-    pod1.setId(1);
-    pod1.setReportedDate(new Date());
-    pod1.setValue(40);
-    pod1.setSegment(segment1);
+//    PodReportEntity pod1 = new PodReportEntity();
+//    pod1.setId(1);
+//    pod1.setReportedDate(new Date());
+//    pod1.setValue(40);
+//    pod1.setSegment(segment1);
+    Integer pod1 = 40;
     segment1.addPod(pod1);
     fakeResults.add(segment1);
     
@@ -47,11 +49,12 @@ public class DummySegmentRepository implements SegmentRepository {
     segment2.setInitialPoa(50);
     segment2.setSearch(search);
     
-    PodReportEntity pod2 = new PodReportEntity();
-    pod2.setId(2);
-    pod2.setReportedDate(new Date());
-    pod2.setValue(60);
-    pod2.setSegment(segment2);
+//    PodReportEntity pod2 = new PodReportEntity();
+//    pod2.setId(2);
+//    pod2.setReportedDate(new Date());
+//    pod2.setValue(60);
+//    pod2.setSegment(segment2);
+    Integer pod2 = 60;
     segment2.addPod(pod2);
     fakeResults.add(segment2);
     return fakeResults;

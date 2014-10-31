@@ -7,16 +7,17 @@ public interface Segment {
 
   Integer getId();
 
-  Set<? extends PodReport> getPods();
+//  Set<? extends PodReport> getPods();
 
-  Search getSearch();
-
-  ShakespeareUser getCreatedBy();
-
+//  Search getSearch();
+String getSearch();
+//  ShakespeareUser getCreatedBy();
+String getCreatedBy();
   Date getCreatedDate();
 
-  ShakespeareUser getLastUpdatedBy();
-
+//  ShakespeareUser getLastUpdatedBy();
+String getLastUpdatedBy();
+  
   Date getLastUpdatedDate();
 
   Integer getCurrentPoa();
@@ -27,6 +28,7 @@ public interface Segment {
    * Add a PoD to the list of PoDs on this Segment
    * @param pod
    */
-  void addPod(PodReport pod);
+//  void addPod(PodReport pod);
+  void addPod(Integer pod);
 
 }

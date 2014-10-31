@@ -5,11 +5,16 @@ import java.util.Date;
 import net.jmdawson.shakespeare.domain.PodReportEntity;
 
 public class ConcreteEditPodReportModel implements EditPodReportModel {
-  private final PodReportEntity entity;
+//  private final PodReportEntity entity;
+  private final Integer pod;
 
-  public ConcreteEditPodReportModel(PodReportEntity podEntity) {
+//  public ConcreteEditPodReportModel(PodReportEntity podEntity) {
+//    super();
+//    this.entity = podEntity;
+//  }
+  public ConcreteEditPodReportModel(Integer pod){
     super();
-    this.entity = podEntity;
+    this.pod = pod;
   }
 
   @Override
@@ -22,17 +27,21 @@ public class ConcreteEditPodReportModel implements EditPodReportModel {
 
   @Override
   public int getPod() {
-    return entity.getValue();
+//    return entity.getValue();
+    return pod;
   }
 
   @Override
   public Date getLastUpdated() {
-    return entity.getReportedDate();
+//    return entity.getReportedDate();
+    return new Date();
   }
 
   @Override
-  public ViewShakespeareUserModel getLastUpdatedBy() {
-    return new ConcreteViewShakespeareUserModel(entity.getAddedBy());
+//  public ViewShakespeareUserModel getLastUpdatedBy() {
+  public String getLastUpdatedBy(){
+    return "dawson";
+//    return new ConcreteViewShakespeareUserModel(entity.getAddedBy());
   }
 
 }

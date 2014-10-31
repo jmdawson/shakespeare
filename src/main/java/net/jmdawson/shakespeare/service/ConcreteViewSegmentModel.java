@@ -20,12 +20,15 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   private final SegmentEntity entity;
   private List<EditPodReportModel> pods = new ArrayList<>();
-  private ShakespeareUserEntity user;
+  // private ShakespeareUserEntity user;
+  private String user;
 
   private int newPod;
-  
+
+  // public ConcreteViewSegmentModel(SegmentEntity entity,
+  // List<EditPodReportModel> pods, ShakespeareUserEntity user) {
   public ConcreteViewSegmentModel(SegmentEntity entity,
-      List<EditPodReportModel> pods, ShakespeareUserEntity user) {
+      List<EditPodReportModel> pods, String user) {
     this.user = user;
     this.pods = pods;
     this.entity = entity;
@@ -77,24 +80,26 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   @Override
   public void addPod() {
-    PodReportEntity podEntity = new PodReportEntity();
-    podEntity.setAddedBy(user);
-    podEntity.setReportedDate(new Date());
-//    podEntity.setSearch((SearchEntity) entity.getSearch());
-    podEntity.setSegment(entity);
-    podEntity.setValue(newPod);
+    // PodReportEntity podEntity = new PodReportEntity();
+    // podEntity.setAddedBy(user);
+    // podEntity.setReportedDate(new Date());
+    // // podEntity.setSearch((SearchEntity) entity.getSearch());
+    // podEntity.setSegment(entity);
+    // podEntity.setValue(newPod);
 
-    entity.addPod(podEntity);
-    pods.add(new ConcreteEditPodReportModel (podEntity));
+    // entity.addPod(podEntity);
+    // pods.add(new ConcreteEditPodReportModel (podEntity));
+    entity.addPod(newPod);
+    pods.add(new ConcreteEditPodReportModel(newPod));
     Collections.sort(pods);
 
     newPod = 0;
   }
 
-  public int getNewPod(){
+  public int getNewPod() {
     return newPod;
   }
-  
+
   @Override
   public void setNewPod(int pod) {
     this.newPod = pod;
