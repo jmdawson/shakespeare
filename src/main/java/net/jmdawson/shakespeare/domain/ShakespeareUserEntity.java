@@ -21,7 +21,7 @@ public class ShakespeareUserEntity extends AbstractEntity
 
   @Id
   @Column
-  int id;
+  private Integer id;
 
   @Column(name = "common_name")
   private String commonName;
@@ -34,9 +34,9 @@ public class ShakespeareUserEntity extends AbstractEntity
 
   @Column(name = "created_date")
   private Date createdDate;
-
+  
   @Override
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 

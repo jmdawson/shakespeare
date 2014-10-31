@@ -5,7 +5,7 @@ import java.util.Set;
 
 public interface Segment {
 
-  int getId();
+  Integer getId();
 
   Set<? extends PodReport> getPods();
 
@@ -19,9 +19,9 @@ public interface Segment {
 
   Date getLastUpdatedDate();
 
-  int getCurrentPoa();
+  Integer getCurrentPoa();
   
-  int getInitialPoa();
+  Integer getInitialPoa();
   
   /**
    * Add a PoD to the list of PoDs on this Segment

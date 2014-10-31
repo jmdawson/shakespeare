@@ -26,7 +26,7 @@ public class PodReportEntity extends AbstractEntity
 
   @Id
   @Column
-  private int id;
+  private Integer id;
 
   @ManyToOne
   @JoinColumn(name = "segment_id")
@@ -47,7 +47,7 @@ public class PodReportEntity extends AbstractEntity
   private int value;
 
   @Override
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -91,7 +91,7 @@ public class PodReportEntity extends AbstractEntity
   }
 
   @Override
-  public int getValue() {
+  public Integer getValue() {
     return value;
   }
 

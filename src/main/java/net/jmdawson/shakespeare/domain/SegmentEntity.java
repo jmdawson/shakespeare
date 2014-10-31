@@ -38,13 +38,13 @@ public class SegmentEntity extends AbstractEntity implements Segment {
 
   @Id
   @Column(nullable = false)
-  private int id;
+  private Integer id;
   
   @Column(name = "initial_poa")
-  private int initialPoa;
+  private Integer initialPoa;
 
   @Column(name = "current_poa")
-  private int currentPoa;
+  private Integer currentPoa;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment")
   private Set<PodReportEntity> pods = new LinkedHashSet<>();
@@ -68,7 +68,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   private Date lastUpdatedDate;
 
   @Override
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -77,7 +77,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   }
   
   @Override
-  public int getInitialPoa() {
+  public Integer getInitialPoa() {
     return initialPoa;
   }
 
@@ -86,7 +86,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   }
 
   @Override
-  public int getCurrentPoa() {
+  public Integer getCurrentPoa() {
     return currentPoa;
   }
 

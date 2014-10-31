@@ -33,7 +33,7 @@ public class SearchEntity extends AbstractEntity implements Search {
 
   @Id
   @Column
-  private int id;
+  private Integer id;
   
   @Column (name = "initiation_date")
   private Date initiationDate;
@@ -54,7 +54,7 @@ public class SearchEntity extends AbstractEntity implements Search {
   private Set<SegmentEntity> segments = new LinkedHashSet<>();
 
   @Override
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 

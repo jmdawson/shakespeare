@@ -3,7 +3,7 @@ package net.jmdawson.shakespeare;
 import java.util.Date;
 
 public interface PodReport {
-  int getId();
+  Integer getId();
 
   Segment getSegment();
 
@@ -13,6 +13,6 @@ public interface PodReport {
 
   ShakespeareUser getAddedBy();
 
-  int getValue();
+  Integer getValue();
 
 }
