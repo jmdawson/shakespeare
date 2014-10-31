@@ -47,10 +47,10 @@ public class SearchEntity extends AbstractEntity implements Search {
   @Column (name = "created_date")
   private Date createdDate;
   
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search_id")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search")
   private Set<PodReportEntity> podReports = new LinkedHashSet<>(); 
   
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search_id")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search")
   private Set<SegmentEntity> segments = new LinkedHashSet<>();
 
   @Override
