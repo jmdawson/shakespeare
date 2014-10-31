@@ -28,16 +28,16 @@ public class PodReportEntity extends AbstractEntity
   @Column
   private int id;
 
-  @JoinColumn(name = "segment_id")
   @ManyToOne
+  @JoinColumn(name = "segment_id")
   private SegmentEntity segment;
 
-  @JoinColumn(name = "search_id")
   @ManyToOne
+  @JoinColumn(name = "search_id")
   private SearchEntity search;
 
-  @JoinColumn(name = "added_by")
   @ManyToOne
+  @JoinColumn(name = "added_by")
   private ShakespeareUserEntity addedBy;
 
   @Column(name = "added_date")
