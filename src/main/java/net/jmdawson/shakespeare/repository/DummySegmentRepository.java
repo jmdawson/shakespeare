@@ -34,12 +34,12 @@ public class DummySegmentRepository implements SegmentRepository {
     segment1.setSearch(search);
     
     
-//    PodReportEntity pod1 = new PodReportEntity();
-//    pod1.setId(1);
-//    pod1.setReportedDate(new Date());
-//    pod1.setValue(40);
-//    pod1.setSegment(segment1);
-    Integer pod1 = 40;
+    PodReportEntity pod1 = new PodReportEntity();
+    pod1.setId(1);
+    pod1.setReportedDate(new Date());
+    pod1.setValue(40);
+    pod1.setSegment(segment1);
+//    Integer pod1 = 40;
     segment1.addPod(pod1);
     fakeResults.add(segment1);
     
@@ -49,12 +49,12 @@ public class DummySegmentRepository implements SegmentRepository {
     segment2.setInitialPoa(50);
     segment2.setSearch(search);
     
-//    PodReportEntity pod2 = new PodReportEntity();
-//    pod2.setId(2);
-//    pod2.setReportedDate(new Date());
-//    pod2.setValue(60);
-//    pod2.setSegment(segment2);
-    Integer pod2 = 60;
+    PodReportEntity pod2 = new PodReportEntity();
+    pod2.setId(2);
+    pod2.setReportedDate(new Date());
+    pod2.setValue(60);
+    pod2.setSegment(segment2);
+//    Integer pod2 = 60;
     segment2.addPod(pod2);
     fakeResults.add(segment2);
     return fakeResults;

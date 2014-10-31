@@ -6,6 +6,6 @@
   bean-discovery-mode="annotated">
   
   <alternatives>
-    <class>net.jmdawson.shakespeare.repository.DummySegmentRepository</class>
+   <!--  <class>net.jmdawson.shakespeare.repository.DummySegmentRepository</class> -->
   </alternatives>
 </beans>
