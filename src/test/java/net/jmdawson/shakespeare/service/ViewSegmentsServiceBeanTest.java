@@ -50,7 +50,7 @@ public class ViewSegmentsServiceBeanTest {
   @Before
   public void setUp() throws Exception {
     bean.factory = factory;
-    bean.repository = repository;
+    bean.segmentRepository = repository;
   }
 
 
