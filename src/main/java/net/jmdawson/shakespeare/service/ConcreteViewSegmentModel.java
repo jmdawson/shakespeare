@@ -24,10 +24,6 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   private int newPod;
   
-  public ConcreteViewSegmentModel(){
-    this(null,null,null);
-  }
-
   public ConcreteViewSegmentModel(SegmentEntity entity,
       List<EditPodReportModel> pods, ShakespeareUserEntity user) {
     this.user = user;
