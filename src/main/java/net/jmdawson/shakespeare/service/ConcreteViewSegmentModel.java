@@ -83,7 +83,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
     PodReportEntity podEntity = new PodReportEntity();
     podEntity.setAddedBy(user);
     podEntity.setReportedDate(new Date());
-    podEntity.setSearch((SearchEntity) entity.getSearch());
+//    podEntity.setSearch((SearchEntity) entity.getSearch());
     podEntity.setSegment(entity);
     podEntity.setValue(newPod);
 
