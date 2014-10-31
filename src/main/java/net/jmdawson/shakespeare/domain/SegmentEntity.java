@@ -149,4 +149,9 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     Validate.isTrue(pod instanceof PodReportEntity);
     pods.add((PodReportEntity) pod);
   }
+  
+  @Override
+  public String toString() {
+    return String.format("%s: %s",search,id);
+  }
 }

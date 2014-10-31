@@ -113,5 +113,10 @@ public class SearchEntity extends AbstractEntity implements Search {
   public void setSegments(Set<SegmentEntity> segments){
     this.segments = segments;
   }
+  
+  @Override
+  public String toString() {
+   return searchNumber;
+  }
 
 }
