@@ -19,6 +19,6 @@ public interface ViewSegmentsService {
    * Update a segment based on a model
    * @param model
    */
-  void updateSegment(ViewSegmentModel model);
+  void updateSegment(ViewSegmentModel model) throws SegmentRepositoryException;
 
 }
