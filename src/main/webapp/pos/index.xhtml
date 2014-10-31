@@ -54,7 +54,9 @@
                 <td><h:inputText value="#{segment.newPod}">
                     <f:validateLongRange minimum="1" maximum="100" />
                     <f:convertNumber maxIntegerDigits="3" type="percent" 
-                      integerOnly="true" /></td>
+                      integerOnly="true" />
+                      </h:inputText>
+                      </td>
                 <td><h:commandLink>
                     <span class="glyphicon glyphicon-plus" />
                     <f:ajax listener="#{model.addPod}"
