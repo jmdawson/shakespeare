@@ -11,25 +11,26 @@
     <h:outputStylesheet library="css" value="dataTables.bootstrap.css" />
   </h:head>
 
- 
-    <ui:composition template="/templates/masterTemplate.xhtml">
-      <ui:define name="windowTitle">
+
+  <ui:composition template="/templates/masterTemplate.xhtml">
+    <ui:define name="windowTitle">
+      <h:outputText value="#{messages['posTitle']}" />
+    </ui:define>
+    <ui:define name="content">
+      <h1>
         <h:outputText value="#{messages['posTitle']}" />
-      </ui:define>
-      <ui:define name="content">
-        <h1>
-          <h:outputText value="#{messages['posTitle']}" />
-          : #{viewPosViewBean.pos}
-        </h1>
-        <div class="button-bar">
-          <h:outputLink styleClass="btn btn-success btn-sm"
-            title="#{messages.addSegmentTip}" value="./">
-            <h:outputText value="#{messages.addSegmentTitle}" />
-          </h:outputLink>
-        </div>
-        <div>
-          <h4>Segments</h4>
-        </div>
+        : #{viewPosViewBean.pos}
+      </h1>
+      <div class="button-bar">
+        <h:outputLink styleClass="btn btn-success btn-sm"
+          title="#{messages.addSegmentTip}" value="./">
+          <h:outputText value="#{messages.addSegmentTitle}" />
+        </h:outputLink>
+      </div>
+      <div>
+        <h4>Segments</h4>
+      </div>
+      <h:form>
         <table class="table table-striped" id="segment_list_table">
           <thead>
             <tr>
@@ -41,37 +42,43 @@
             </tr>
           </thead>
           <tbody>
+
             <ui:repeat var="segment" value="#{viewPosBean.segments}">
               <tr>
+
                 <td><h:outputText value="#{segment.id}" /></td>
                 <td><h:outputText value="#{segment.poa}" /></td>
-                <td><h:outputText value="#{segment.lastPod}" /></td>
-                <td><h:form>
-                    <div class="col-sm-2">
-                      <h:inputText id="newPod-#{segment.id}"
-                        styleClass="form-control" />
-                    </div>
-                  </h:form></td>
-                <td><h:outputLink
-                    value="#{request.contextPath}/pos">#{messages.addPodHeading}</h:outputLink>
-                </td>
+                <td><h:outputText value="#{segment.lastPod}">
+                    <f:convertNumber maxIntegerDigits="3" type="percent" />
+                  </h:outputText></td>
+                <td><h:inputText value="#{segment.newPod}">
+                    <f:validateLongRange minimum="1" maximum="100" />
+                    <f:convertNumber maxIntegerDigits="3" type="percent" 
+                      integerOnly="true" /></td>
+                <td><h:commandLink>
+                    <span class="glyphicon glyphicon-plus" />
+                    <f:ajax listener="#{model.addPod}"
+                      execute="attribute-table-wrapper"
+                      render="attribute-table-wrapper" />
+                  </h:commandLink></td>
               </tr>
             </ui:repeat>
           </tbody>
         </table>
+      </h:form>
 
-      </ui:define>
+    </ui:define>
 
-      <ui:define name="scripts">
-        <script type="text/javascript"
-          src="#{request.contextPath}/resources/js/dataTables.min.js"></script>
-        <script type="text/javascript"
-          src="#{request.contextPath}/resources/js/dataTables.bootstrap.js"></script>
-        <script type="text/javascript">
-                  
-                </script>
-      </ui:define>
+    <ui:define name="scripts">
+      <script type="text/javascript"
+        src="#{request.contextPath}/resources/js/dataTables.min.js"></script>
+      <script type="text/javascript"
+        src="#{request.contextPath}/resources/js/dataTables.bootstrap.js"></script>
+      <script type="text/javascript">
+              
+            </script>
+    </ui:define>
 
-    </ui:composition>
-  </h:body>
+  </ui:composition>
+</h:body>
 </html>
