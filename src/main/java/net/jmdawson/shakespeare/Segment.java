@@ -6,8 +6,10 @@ import java.util.Set;
 public interface Segment {
 
   Integer getId();
+  
+  Integer getSegmentNumber();
 
-//  Set<? extends PodReport> getPods();
+  Set<? extends PodReport> getPods();
 
 //  Search getSearch();
 String getSearch();
@@ -28,7 +30,7 @@ String getLastUpdatedBy();
    * Add a PoD to the list of PoDs on this Segment
    * @param pod
    */
-//  void addPod(PodReport pod);
-  void addPod(Integer pod);
+  void addPod(PodReport pod);
+//  void addPod(Integer pod);
 
 }

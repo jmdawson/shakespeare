@@ -34,7 +34,7 @@
         <table class="table table-striped" id="segment_list_table">
           <thead>
             <tr>
-              <th>#{messages.segmentIdHeading}</th>
+              <th>#{messages.segmentNumberHeading}</th>
               <th>#{messages.poaHeading}</th>
               <th>#{messages.lastPodHeading}</th>
               <th>#{messages.newPodHeading}</th>
@@ -46,7 +46,7 @@
             <ui:repeat var="segment" value="#{viewPosBean.segments}">
               <tr>
 
-                <td><h:outputText value="#{segment.id}" /></td>
+                <td><h:outputText value="#{segment.number}" /></td>
                 <td><h:outputText value="#{segment.poa}" /></td>
                 <td><h:outputText value="#{segment.lastPod}"/>%</td>
                 <td><h:inputText value="#{segment.newPod}">
@@ -57,7 +57,7 @@
                       </td>
                 <td><h:commandLink>
                     <span class="glyphicon glyphicon-plus" />
-                    <f:ajax listener="#{model.addPod}"
+                    <f:ajax listener="#{segment.addPod}"
                       execute="attribute-table-wrapper"
                       render="attribute-table-wrapper" />
                   </h:commandLink></td>

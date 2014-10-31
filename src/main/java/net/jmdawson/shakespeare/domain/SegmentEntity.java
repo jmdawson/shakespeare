@@ -41,6 +41,9 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   @Column(nullable = false)
   private Integer id;
   
+  @Column(nullable = false, name = "segment_number")
+  private Integer segmentNumber;
+  
   @Column(name = "initial_poa")
   private Integer initialPoa;
 
@@ -55,14 +58,14 @@ public class SegmentEntity extends AbstractEntity implements Segment {
 //  @JoinColumn(name = "search_id")
 //  private SearchEntity search;
 
-  @Column
+  @Column(name = "search_id")
   private String search;
   
 //  @ManyToOne
 //  @JoinColumn(name = "created_by")
 //  private ShakespeareUserEntity createdBy;
 
-  @Column
+  @Column(name = "created_by")
   private String createdBy;
   
   @Column(name = "created_date")
@@ -72,7 +75,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
 //  @JoinColumn(name = "last_updated_by")
 //  private ShakespeareUserEntity lastUpdatedBy;
 
-  @Column
+  @Column (name = "last_updated_by")
   private String lastUpdatedBy;
   
   @Column(name = "last_updated_date")
@@ -86,6 +89,17 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   public void setId(int id) {
     this.id = id;
   }
+  
+  @Override
+  public Integer getSegmentNumber(){
+    return segmentNumber;
+  }
+  
+  public void setSegmentNumber(Integer segmentNumber){
+    this.segmentNumber = segmentNumber;
+  }
+  
+  
   
   @Override
   public Integer getInitialPoa() {
@@ -105,10 +119,10 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     this.currentPoa = poa;
   }
 
-//  @Override
-//  public Set<PodReportEntity> getPods() {
-//    return pods;
-//  }
+  @Override
+  public Set<PodReportEntity> getPods() {
+    return pods;
+  }
 //
 //  @Override
 //  public Search getSearch() {
@@ -169,23 +183,23 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     return Objects.equals(this.id, that.id);
   }
 
-//  /**
-//   * {@inheritDoc}
-//   */
-//  @Override
-//  public void addPod(PodReport pod) {
-//    Validate.isTrue(pod instanceof PodReportEntity);
-//    pods.add((PodReportEntity) pod);
-//  }
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public void addPod(Integer pod){
-    PodReportEntity dummyPod = new PodReportEntity();
-    dummyPod.setId(5);
-    dummyPod.setValue(pod);
-    dummyPod.setSegment(this);
-    dummyPod.setReportedDate(new Date());
-    pods.add(dummyPod);
+  public void addPod(PodReport pod) {
+    Validate.isTrue(pod instanceof PodReportEntity);
+    pods.add((PodReportEntity) pod);
   }
+//  @Override
+//  public void addPod(Integer pod){
+//    PodReportEntity dummyPod = new PodReportEntity();
+//    dummyPod.setId(5);
+//    dummyPod.setValue(pod);
+//    dummyPod.setSegment(this);
+//    dummyPod.setReportedDate(new Date());
+//    pods.add(dummyPod);
+//  }
   
   @Override
   public String toString() {

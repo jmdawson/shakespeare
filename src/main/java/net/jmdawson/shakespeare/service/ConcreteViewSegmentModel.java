@@ -25,8 +25,8 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   private int newPod;
 
-  // public ConcreteViewSegmentModel(SegmentEntity entity,
-  // List<EditPodReportModel> pods, ShakespeareUserEntity user) {
+//   public ConcreteViewSegmentModel(SegmentEntity entity,
+//   List<EditPodReportModel> pods, ShakespeareUserEntity user) {
   public ConcreteViewSegmentModel(SegmentEntity entity,
       List<EditPodReportModel> pods, String user) {
     this.user = user;
@@ -39,8 +39,8 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    * {@inheritDoc}
    */
   @Override
-  public int getId() {
-    return entity.getId();
+  public Integer getNumber() {
+    return entity.getSegmentNumber();
   }
 
   /**
@@ -56,7 +56,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    * {@inheritDoc}
    */
   @Override
-  public int getPoa() {
+  public Integer getPoa() {
     return entity.getCurrentPoa();
   }
 
@@ -73,24 +73,27 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    * {@inheritDoc}
    */
   @Override
-  public int getLastPod() {
-    EditPodReportModel max = Collections.max(pods);
-    return max.getPod();
+  public Integer getLastPod() {
+    if(pods.size() > 0){
+      EditPodReportModel max = Collections.max(pods);
+      return max.getPod();
+    }
+    return null;
   }
 
   @Override
   public void addPod() {
-    // PodReportEntity podEntity = new PodReportEntity();
-    // podEntity.setAddedBy(user);
-    // podEntity.setReportedDate(new Date());
-    // // podEntity.setSearch((SearchEntity) entity.getSearch());
-    // podEntity.setSegment(entity);
-    // podEntity.setValue(newPod);
+     PodReportEntity podEntity = new PodReportEntity();
+//     podEntity.setAddedBy(user);
+     podEntity.setReportedDate(new Date());
+//      podEntity.setSearch((SearchEntity) entity.getSearch());
+     podEntity.setSegment(entity);
+     podEntity.setValue(newPod);
 
-    // entity.addPod(podEntity);
-    // pods.add(new ConcreteEditPodReportModel (podEntity));
-    entity.addPod(newPod);
-    pods.add(new ConcreteEditPodReportModel(newPod));
+     entity.addPod(podEntity);
+     pods.add(new ConcreteEditPodReportModel (podEntity));
+//    entity.addPod(newPod);
+//    pods.add(new ConcreteEditPodReportModel(newPod));
     Collections.sort(pods);
 
     newPod = 0;
