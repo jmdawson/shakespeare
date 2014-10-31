@@ -22,5 +22,11 @@ public interface Segment {
   int getCurrentPoa();
   
   int getInitialPoa();
+  
+  /**
+   * Add a PoD to the list of PoDs on this Segment
+   * @param pod
+   */
+  void addPod(PodReport pod);
 
 }

@@ -16,9 +16,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.jmdawson.shakespeare.PodReport;
 import net.jmdawson.shakespeare.Search;
 import net.jmdawson.shakespeare.Segment;
 import net.jmdawson.shakespeare.ShakespeareUser;
+
+import org.apache.commons.lang3.Validate;
 
 /**
  * An implementation of the Segment domain object
@@ -136,5 +139,14 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     if (!(obj instanceof SegmentEntity)) return false;
     SegmentEntity that = (SegmentEntity) obj;
     return Objects.equals(this.id, that.id);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void addPod(PodReport pod) {
+    Validate.isTrue(pod instanceof PodReportEntity);
+    pods.add((PodReportEntity) pod);
   }
 }
