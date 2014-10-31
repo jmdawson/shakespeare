@@ -19,10 +19,10 @@ public class ViewSegmentsServiceBean implements ViewSegmentsService {
 
   @Inject
   protected SegmentRepository segmentRepository;
-  
+
   @Inject
   protected PodReportRepository podReportRepository;
-  
+
   @PersistenceContext
   protected EntityManager entityManager;
 

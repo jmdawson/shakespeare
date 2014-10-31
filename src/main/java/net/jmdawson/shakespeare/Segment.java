@@ -11,14 +11,11 @@ public interface Segment {
 
   Set<? extends PodReport> getPods();
 
-//  Search getSearch();
-String getSearch();
-//  ShakespeareUser getCreatedBy();
-String getCreatedBy();
+  Search getSearch();
+  ShakespeareUser getCreatedBy();
   Date getCreatedDate();
 
-//  ShakespeareUser getLastUpdatedBy();
-String getLastUpdatedBy();
+  ShakespeareUser getLastUpdatedBy();
   
   Date getLastUpdatedDate();
 
@@ -31,6 +28,5 @@ String getLastUpdatedBy();
    * @param pod
    */
   void addPod(PodReport pod);
-//  void addPod(Integer pod);
 
 }

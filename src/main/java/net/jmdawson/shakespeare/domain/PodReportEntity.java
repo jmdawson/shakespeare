@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,13 +29,13 @@ public class PodReportEntity extends AbstractEntity
   @Column
   private Integer id;
 
-  @ManyToOne
+  @ManyToOne (fetch = FetchType.LAZY)
   @JoinColumn(name = "segment_id")
   private SegmentEntity segment;
 
-//  @ManyToOne
-//  @JoinColumn(name = "search_id")
-//  private SearchEntity search;
+  @ManyToOne
+  @JoinColumn(name = "search_id")
+  private SearchEntity search;
 
   @ManyToOne
   @JoinColumn(name = "added_by")
@@ -64,14 +65,14 @@ public class PodReportEntity extends AbstractEntity
     this.segment = segment;
   }
 
-//  @Override
-//  public Search getSearch() {
-//    return search;
-//  }
-//
-//  public void setSearch(SearchEntity search) {
-//    this.search = search;
-//  }
+  @Override
+  public Search getSearch() {
+    return search;
+  }
+
+  public void setSearch(SearchEntity search) {
+    this.search = search;
+  }
 
   @Override
   public ShakespeareUser getAddedBy() {

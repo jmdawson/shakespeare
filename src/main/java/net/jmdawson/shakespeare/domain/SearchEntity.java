@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,7 +31,8 @@ import net.jmdawson.shakespeare.ShakespeareUser;
 @Access(AccessType.FIELD)
 public class SearchEntity extends AbstractEntity implements Search {
 
-  private static final long serialVersionUID = -1279612529231319968L;
+
+  private static final long serialVersionUID = 5122751499451739710L;
 
   @Id
   @Column
@@ -41,15 +44,16 @@ public class SearchEntity extends AbstractEntity implements Search {
   @Column (name = "va_search_number")
   private String searchNumber;
   
-  @Column (name = "created_by")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "created_by")
   private ShakespeareUserEntity createdBy;
   
   @Column (name = "created_date")
   private Date createdDate;
   
-//  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search")
-//  private Set<PodReportEntity> podReports = new LinkedHashSet<>(); 
-//  
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "search")
+  private Set<PodReportEntity> podReports = new LinkedHashSet<>(); 
+  
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "search")
   private Set<SegmentEntity> segments = new LinkedHashSet<>();
 
@@ -70,7 +74,7 @@ public class SearchEntity extends AbstractEntity implements Search {
   public void setInitiationDate(Date initiationDate) {
     this.initiationDate = initiationDate;
   }
-
+  
   @Override
   public String getSearchNumber() {
     return searchNumber;
@@ -98,14 +102,14 @@ public class SearchEntity extends AbstractEntity implements Search {
     this.createdDate = createdDate;
   }
   
-//  public Set<? extends PodReport> getPodReports(){
-//    return podReports;
-//  }
-//  
-//  public void setPodReports(Set<PodReportEntity> podReports){
-//    this.podReports = podReports;
-//  }
-//  
+  public Set<? extends PodReport> getPodReports(){
+    return podReports;
+  }
+  
+  public void setPodReports(Set<PodReportEntity> podReports){
+    this.podReports = podReports;
+  }
+  
   public Set<? extends Segment> getSegments(){
     return segments;
   }
@@ -118,5 +122,6 @@ public class SearchEntity extends AbstractEntity implements Search {
   public String toString() {
    return searchNumber;
   }
+
 
 }

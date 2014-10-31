@@ -7,7 +7,7 @@ public interface PodReport {
 
   Segment getSegment();
 
-//  Search getSearch();
+  Search getSearch();
 
   Date getReportedDate();
 

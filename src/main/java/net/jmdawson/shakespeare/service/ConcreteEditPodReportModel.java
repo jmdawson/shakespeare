@@ -6,16 +6,11 @@ import net.jmdawson.shakespeare.domain.PodReportEntity;
 
 public class ConcreteEditPodReportModel implements EditPodReportModel {
   private final PodReportEntity entity;
-//  private final Integer pod;
 
   public ConcreteEditPodReportModel(PodReportEntity podEntity) {
     super();
     this.entity = podEntity;
   }
-//  public ConcreteEditPodReportModel(Integer pod){
-//    super();
-//    this.pod = pod;
-//  }
 
   @Override
   public int compareTo(EditPodReportModel o) {
@@ -28,13 +23,11 @@ public class ConcreteEditPodReportModel implements EditPodReportModel {
   @Override
   public int getPod() {
     return entity.getValue();
-//    return pod;
   }
 
   @Override
   public Date getLastUpdated() {
     return entity.getReportedDate();
-//    return new Date();
   }
 
   @Override

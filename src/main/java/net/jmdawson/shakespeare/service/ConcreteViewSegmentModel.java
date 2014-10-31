@@ -19,16 +19,15 @@ import net.jmdawson.shakespeare.domain.ShakespeareUserEntity;
 public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   private final SegmentEntity entity;
-  private List<EditPodReportModel> pods = new ArrayList<>();
-  // private ShakespeareUserEntity user;
-  private String user;
+  
+
+  private  List<EditPodReportModel> pods = new ArrayList<>();
+  private final ShakespeareUserEntity user;
 
   private int newPod;
 
-//   public ConcreteViewSegmentModel(SegmentEntity entity,
-//   List<EditPodReportModel> pods, ShakespeareUserEntity user) {
   public ConcreteViewSegmentModel(SegmentEntity entity,
-      List<EditPodReportModel> pods, String user) {
+      List<EditPodReportModel> pods, ShakespeareUserEntity user) {
     this.user = user;
     this.pods = pods;
     this.entity = entity;
@@ -74,7 +73,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   @Override
   public Integer getLastPod() {
-    if(pods.size() > 0){
+    if (pods.size() > 0) {
       EditPodReportModel max = Collections.max(pods);
       return max.getPod();
     }
@@ -83,17 +82,15 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
   @Override
   public void addPod() {
-     PodReportEntity podEntity = new PodReportEntity();
-//     podEntity.setAddedBy(user);
-     podEntity.setReportedDate(new Date());
-//      podEntity.setSearch((SearchEntity) entity.getSearch());
-     podEntity.setSegment(entity);
-     podEntity.setValue(newPod);
+    PodReportEntity podEntity = new PodReportEntity();
+     podEntity.setAddedBy(user);
+    podEntity.setReportedDate(new Date());
+     podEntity.setSearch((SearchEntity) entity.getSearch());
+    podEntity.setSegment(entity);
+    podEntity.setValue(newPod);
 
-     entity.addPod(podEntity);
-     pods.add(new ConcreteEditPodReportModel (podEntity));
-//    entity.addPod(newPod);
-//    pods.add(new ConcreteEditPodReportModel(newPod));
+    entity.addPod(podEntity);
+    pods.add(new ConcreteEditPodReportModel(podEntity));
     Collections.sort(pods);
 
     newPod = 0;
@@ -114,6 +111,15 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   public SegmentEntity getEntity() {
     return entity;
+  }
+  
+  public List<EditPodReportModel> getPods() {
+    return pods;
+  }
+
+
+  public ShakespeareUserEntity getUser() {
+    return user;
   }
 
 }

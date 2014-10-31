@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import net.jmdawson.shakespeare.PodReport;
@@ -50,34 +51,27 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   @Column(name = "current_poa")
   private Integer currentPoa;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment", cascade=CascadeType.ALL)
+  @OneToMany( mappedBy = "segment", 
+      fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+  @OrderBy("reportedDate DESC")
   private Set<PodReportEntity> pods = new LinkedHashSet<>();
-//  private Set<Integer> pods = new LinkedHashSet<>();
 
-//  @ManyToOne
-//  @JoinColumn(name = "search_id")
-//  private SearchEntity search;
+  @ManyToOne
+  @JoinColumn(name = "search_id")
+  private SearchEntity search;
 
-  @Column(name = "search_id")
-  private String search;
   
-//  @ManyToOne
-//  @JoinColumn(name = "created_by")
-//  private ShakespeareUserEntity createdBy;
+  @ManyToOne
+  @JoinColumn(name = "created_by")
+  private ShakespeareUserEntity createdBy;
 
-  @Column(name = "created_by")
-  private String createdBy;
-  
   @Column(name = "created_date")
   private Date createdDate;
 
-//  @ManyToOne
-//  @JoinColumn(name = "last_updated_by")
-//  private ShakespeareUserEntity lastUpdatedBy;
+  @ManyToOne
+  @JoinColumn(name = "last_updated_by")
+  private ShakespeareUserEntity lastUpdatedBy;
 
-  @Column (name = "last_updated_by")
-  private String lastUpdatedBy;
-  
   @Column(name = "last_updated_date")
   private Date lastUpdatedDate;
 
@@ -98,8 +92,6 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   public void setSegmentNumber(Integer segmentNumber){
     this.segmentNumber = segmentNumber;
   }
-  
-  
   
   @Override
   public Integer getInitialPoa() {
@@ -123,45 +115,28 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   public Set<PodReportEntity> getPods() {
     return pods;
   }
-//
-//  @Override
-//  public Search getSearch() {
-//    return search;
-//  }
-//  
-//  public void setSearch(SearchEntity search){
-//    this.search = search;
-//  }
-//
-//  @Override
-//  public ShakespeareUser getCreatedBy() {
-//    return createdBy;
-//  }
 
   @Override
-  public String getSearch(){
+  public Search getSearch() {
     return search;
   }
   
-  public void setSearch(String search){
+  public void setSearch(SearchEntity search){
     this.search = search;
   }
-  
+
   @Override
-  public String getCreatedBy(){
+  public ShakespeareUser getCreatedBy() {
     return createdBy;
   }
+
   @Override
   public Date getCreatedDate() {
     return createdDate;
   }
 
-//  @Override
-//  public ShakespeareUser getLastUpdatedBy() {
-//    return lastUpdatedBy;
-//  }
   @Override
-  public String getLastUpdatedBy(){
+  public ShakespeareUser getLastUpdatedBy() {
     return lastUpdatedBy;
   }
 
@@ -191,15 +166,6 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     Validate.isTrue(pod instanceof PodReportEntity);
     pods.add((PodReportEntity) pod);
   }
-//  @Override
-//  public void addPod(Integer pod){
-//    PodReportEntity dummyPod = new PodReportEntity();
-//    dummyPod.setId(5);
-//    dummyPod.setValue(pod);
-//    dummyPod.setSegment(this);
-//    dummyPod.setReportedDate(new Date());
-//    pods.add(dummyPod);
-//  }
   
   @Override
   public String toString() {

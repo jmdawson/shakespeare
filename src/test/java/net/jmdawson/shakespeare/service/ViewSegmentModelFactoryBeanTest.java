@@ -58,7 +58,7 @@ public class ViewSegmentModelFactoryBeanTest {
 
     ViewSegmentModel model = factory.createModel(segment);
     assertThat(model, is(not(nullValue())));
-    assertThat(model.getId(), is(equalTo(segment1.getId())));
+    assertThat(model.getNumber(), is(equalTo(segment1.getId())));
     assertThat(model.getPoa(), is(equalTo(segment1.getCurrentPoa())));
   }
 
