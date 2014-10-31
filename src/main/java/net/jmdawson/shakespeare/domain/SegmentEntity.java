@@ -43,19 +43,25 @@ public class SegmentEntity extends AbstractEntity implements Segment {
   @Column(name = "current_poa")
   private int currentPoa;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment_id")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "segment")
   private Set<PodReportEntity> pods = new LinkedHashSet<>();
 
   @ManyToOne 
   @JoinColumn(name = "search_id")
   private SearchEntity search;
 
+  @ManyToOne
+  @JoinColumn(name = "created_by")
   private ShakespeareUserEntity createdBy;
 
+  @Column(name = "created_date")
   private Date createdDate;
 
+  @ManyToOne
+  @JoinColumn(name = "last_updated_by")
   private ShakespeareUserEntity lastUpdatedBy;
 
+  @Column(name = "last_updated_date")
   private Date lastUpdatedDate;
 
   @Override
@@ -81,7 +87,7 @@ public class SegmentEntity extends AbstractEntity implements Segment {
     return currentPoa;
   }
 
-  public void setLastPoa(int poa) {
+  public void setCurrentPoa(int poa) {
     this.currentPoa = poa;
   }
 
