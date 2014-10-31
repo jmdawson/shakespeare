@@ -71,7 +71,8 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   @Override
   public int getLastPod() {
-    return Collections.max(pods).getPod();
+    EditPodReportModel max = Collections.max(pods);
+    return max.getPod();
   }
 
   @Override
@@ -90,6 +91,10 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
     newPod = 0;
   }
 
+  public int getNewPod(){
+    return newPod;
+  }
+  
   @Override
   public void setNewPod(int pod) {
     this.newPod = pod;
