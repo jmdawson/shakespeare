@@ -9,6 +9,11 @@ import javax.persistence.PersistenceContext;
 import net.jmdawson.shakespeare.PodReport;
 import net.jmdawson.shakespeare.Segment;
 
+/**
+ * A JPA Repository for PoD Reports
+ *
+ * @author Jacob M. Dawson
+ */
 @ApplicationScoped
 public class JpaPodReportRepository implements PodReportRepository {
   
