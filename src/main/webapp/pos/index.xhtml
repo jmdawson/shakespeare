@@ -48,9 +48,7 @@
 
                 <td><h:outputText value="#{segment.id}" /></td>
                 <td><h:outputText value="#{segment.poa}" /></td>
-                <td><h:outputText value="#{segment.lastPod}">
-                    <f:convertNumber maxIntegerDigits="3" type="percent" />
-                  </h:outputText></td>
+                <td><h:outputText value="#{segment.lastPod}"/>%</td>
                 <td><h:inputText value="#{segment.newPod}">
                     <f:validateLongRange minimum="1" maximum="100" />
                     <f:convertNumber maxIntegerDigits="3" type="percent" 
