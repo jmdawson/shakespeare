@@ -8,4 +8,11 @@
       select segment from SegmentEntity segment
     </query>
 	</named-query>
+
+	<named-query name="getPodReportsForSegment">
+		<query>
+	      select podReport from PodReportEntity podReport
+	      where podReport.segment = :segment
+	  </query>
+	</named-query>
 </entity-mappings>
