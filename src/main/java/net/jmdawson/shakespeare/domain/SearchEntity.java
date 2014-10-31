@@ -38,10 +38,10 @@ public class SearchEntity extends AbstractEntity implements Search {
   @Column (name = "initiation_date")
   private Date initiationDate;
   
-  @Column (name = "search_number")
+  @Column (name = "va_search_number")
   private String searchNumber;
   
-  @Column (name = "search")
+  @Column (name = "created_by")
   private ShakespeareUserEntity createdBy;
   
   @Column (name = "created_date")
