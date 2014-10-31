@@ -1,9 +1,16 @@
 package net.jmdawson.shakespeare.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 
 import net.jmdawson.shakespeare.PodReport;
 import net.jmdawson.shakespeare.Segment;
+import net.jmdawson.shakespeare.domain.PodReportEntity;
+import net.jmdawson.shakespeare.domain.SegmentEntity;
+import net.jmdawson.shakespeare.domain.ShakespeareUserEntity;
 
 /**
  * 
@@ -19,15 +26,15 @@ public class ViewSegmentModelFactoryBean implements ViewSegmentModelFactory {
    */
   @Override
   public ViewSegmentModel createModel(Segment segment) {
-    ConcreteViewSegmentModel model = new ConcreteViewSegmentModel();
-    model.setId(segment.getId());
-    model.setPoa(segment.getLastPoa());
+    List<EditPodReportModel> pods = new ArrayList<>();
 
-    int lastPodValue =
-        segment.getLastPod() == null ? 0 : segment.getLastPod().getValue();
-    model.setLastPod(lastPodValue);
+    for (PodReport pod : segment.getPods()) {
+      pods.add(new ConcreteEditPodReportModel((PodReportEntity) pod));
+    }
+    Collections.sort(pods);
 
-    return model;
+    return new ConcreteViewSegmentModel((SegmentEntity) segment, pods,
+        (ShakespeareUserEntity) segment.getLastUpdatedBy());
   }
 
 }

@@ -1,5 +1,15 @@
 package net.jmdawson.shakespeare.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import net.jmdawson.shakespeare.domain.PodReportEntity;
+import net.jmdawson.shakespeare.domain.SearchEntity;
+import net.jmdawson.shakespeare.domain.SegmentEntity;
+import net.jmdawson.shakespeare.domain.ShakespeareUserEntity;
+
 /**
  * 
  * A concrete implementation of {@link ViewSegmentModel}
@@ -8,9 +18,22 @@ package net.jmdawson.shakespeare.service;
  */
 public class ConcreteViewSegmentModel implements ViewSegmentModel {
 
-  private int id;
-  private int poa;
-  private int lastPod;
+  private final SegmentEntity entity;
+  private List<EditPodReportModel> pods = new ArrayList<>();
+  private ShakespeareUserEntity user;
+
+  private int newPod;
+  
+  public ConcreteViewSegmentModel(){
+    this(null,null,null);
+  }
+
+  public ConcreteViewSegmentModel(SegmentEntity entity,
+      List<EditPodReportModel> pods, ShakespeareUserEntity user) {
+    this.user = user;
+    this.pods = pods;
+    this.entity = entity;
+  }
 
   /**
    * 
@@ -18,7 +41,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   @Override
   public int getId() {
-    return id;
+    return entity.getId();
   }
 
   /**
@@ -26,15 +49,7 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    * @param id
    */
   public void setId(int id) {
-    this.id = id;
-  }
-
-  /**
-   * Set the POA on the segment
-   * @param poa
-   */
-  public void setPoa(int poa) {
-    this.poa = poa;
+    entity.setId(id);
   }
 
   /**
@@ -43,7 +58,16 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   @Override
   public int getPoa() {
-    return poa;
+    return entity.getCurrentPoa();
+  }
+
+  /**
+   * Set the POA on the segment
+   * @param poa
+   */
+  public void setPoa(int poa) {
+
+    entity.setCurrentPoa(poa);
   }
 
   /**
@@ -51,15 +75,36 @@ public class ConcreteViewSegmentModel implements ViewSegmentModel {
    */
   @Override
   public int getLastPod() {
-    return lastPod;
+    return Collections.max(pods).getPod();
+  }
+
+  @Override
+  public void addPod() {
+    PodReportEntity podEntity = new PodReportEntity();
+    podEntity.setAddedBy(user);
+    podEntity.setReportedDate(new Date());
+    podEntity.setSearch((SearchEntity) entity.getSearch());
+    podEntity.setSegment(entity);
+    podEntity.setValue(newPod);
+
+    entity.addPod(podEntity);
+    pods.add(new ConcreteEditPodReportModel (podEntity));
+    Collections.sort(pods);
+
+    newPod = 0;
+  }
+
+  @Override
+  public void setNewPod(int pod) {
+    this.newPod = pod;
   }
 
   /**
-   * Set the last-known PoD for this segment
-   * @param lastPod
+   * Returns the entity
+   * @return
    */
-  public void setLastPod(int lastPod) {
-    this.lastPod = lastPod;
+  public SegmentEntity getEntity() {
+    return entity;
   }
 
 }
